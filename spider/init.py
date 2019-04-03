@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from urllib import request, parse
 import time
 import http.cookiejar
-
+from xlwt import *
 
 # response = urllib.request.urlopen('https://www.baidu.com/')
 #
@@ -28,8 +28,17 @@ import http.cookiejar
 #     print('Name = '+item.name)
 #     print('Value = '+item.value)
 
+dict1 = {"a":1}
+dict1['aaa']=2
+for d , x in dict1.items():
+    print(d+str(x))
 
 
+
+ws = Workbook(encoding='utf-8')
+w = ws.add_sheet("评论数据")
+w.write(0,0,"评论日期")
+w.write(0,1,"评论数量")
 
 
 #agent 存在问题，因此抓取不到数据
@@ -84,15 +93,21 @@ while(urlCollection.__len__()!=0):
 
     links = soup.select('.next')
 
-    if (links):
-        for link in links:
-            urlCollection.add("https://movie.douban.com/subject/4840388/comments"+link['href'])
+    try:
+        if (links.__len__()>0):
+            for link in links:
+                if(link['href']):
+                    urlCollection.add("https://movie.douban.com/subject/4840388/comments"+link['href'])
+    except :
+        break
 
 
-    count = 0
-    for(d,x) in  dict.items():
-        count+=x
-        print(d+str(x))
+linecount=1
+for d,x in  dict.items():
+    print(d+str(x))
+    w.write(linecount,0,d)
+    w.write(linecount,1,str(x))
+    linecount+=1
 
-    print(count)
+ws.save("测试数据20191.xls")
 
