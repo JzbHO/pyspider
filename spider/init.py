@@ -42,16 +42,16 @@ w.write(0,1,"评论数量")
 
 
 #agent 存在问题，因此抓取不到数据
-urlCollection = {'https://movie.douban.com/subject/4840388/comments'}
+urlCollection = {'https://movie.douban.com/subject/4840388/collections?start=0'}
 
 
 # url = "https://movie.douban.com/subject/4840388/comments"
 # print(url)
 # user_agent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'
 headers={
-    'User-Agent': 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)',
-    'Cookie': 'bid=7uzaaRDIPag; douban-fav-remind=1; _vwo_uuid_v2=D67ADE5CB4AC75F187A1B7A3ECB1911ED|8397e10994edfd7a6a4b36235429dc08; ll="108120"; gr_user_id=b2e45264-e31a-4ea6-b609-d425f2141922; __yadk_uid=lLLIb0FkMXok2KnekkHwsOrTpfAZDoYw; viewed="25779298_26383653_4817744_5912334_1017157_26656350_1961913_27179953_27170483_30365801"; __utmc=30149280; __utmc=223695111; push_doumail_num=0; _ga=GA1.2.1259078594.1543152693; _gid=GA1.2.1988960070.1554283868; __utmv=30149280.17320; push_noty_num=0; dbcl2="173203890:TsXyaJN4SMI"; ck=G_uN; _pk_ref.100001.4cf6=%5B%22%22%2C%22%22%2C1554288028%2C%22https%3A%2F%2Faccounts.douban.com%2Fpassport%2Flogin%3Fredir%3Dhttps%253A%252F%252Fmovie.douban.com%252F%22%5D; _pk_ses.100001.4cf6=*; __utma=30149280.1259078594.1543152693.1554283452.1554288028.30; __utmb=30149280.0.10.1554288028; __utmz=30149280.1554288028.30.28.utmcsr=accounts.douban.com|utmccn=(referral)|utmcmd=referral|utmcct=/passport/login; __utma=223695111.1773724212.1544459933.1554283506.1554288028.8; __utmb=223695111.0.10.1554288028; __utmz=223695111.1554288028.8.7.utmcsr=accounts.douban.com|utmccn=(referral)|utmcmd=referral|utmcct=/passport/login; _pk_id.100001.4cf6=c677784fadd8c8d1.1544459934.8.1554288036.1554283518.'
-
+    'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) '
+                  'Chrome/73.0.3683.86 Mobile Safari/537.36',
+    'Cookie': 'bid=7uzaaRDIPag; douban-fav-remind=1; _vwo_uuid_v2=D67ADE5CB4AC75F187A1B7A3ECB1911ED|8397e10994edfd7a6a4b36235429dc08; ll="108120"; gr_user_id=b2e45264-e31a-4ea6-b609-d425f2141922; __yadk_uid=lLLIb0FkMXok2KnekkHwsOrTpfAZDoYw; viewed="25779298_26383653_4817744_5912334_1017157_26656350_1961913_27179953_27170483_30365801"; push_doumail_num=0; _ga=GA1.2.1259078594.1543152693; __utmv=30149280.17320; push_noty_num=0; ct=y; __utma=30149280.1259078594.1543152693.1554294130.1554560327.32; __utmc=30149280; __utmz=30149280.1554560327.32.29.utmcsr=cn.bing.com|utmccn=(referral)|utmcmd=referral|utmcct=/; ap_v=0,6.0; _pk_ref.100001.4cf6=%5B%22%22%2C%22%22%2C1554560334%2C%22https%3A%2F%2Fwww.douban.com%2F%22%5D; _pk_ses.100001.4cf6=*; __utma=223695111.1773724212.1544459933.1554294130.1554560334.10; __utmb=223695111.0.10.1554560334; __utmc=223695111; __utmz=223695111.1554560334.10.8.utmcsr=douban.com|utmccn=(referral)|utmcmd=referral|utmcct=/; ps=y; dbcl2="173203890:coXZYiIY5T8"; ck=O2rK; __utmb=30149280.4.10.1554560327; _pk_id.100001.4cf6=c677784fadd8c8d1.1544459934.10.1554560591.1554295967.'
 }
 # response = request.urlopen(req)
 # content = response.read().decode('utf-8')
@@ -60,16 +60,10 @@ headers={
 
 
 
-# headers = {'User-Agent':'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Mobile Safari/537.36',
-#            'Cookie': 'bid=7uzaaRDIPag; douban-fav-remind=1; _vwo_uuid_v2=D67ADE5CB4AC75F187A1B7A3ECB1911ED|8397e10994edfd7a6a4b36235429dc08; ll="108120"; gr_user_id=b2e45264-e31a-4ea6-b609-d425f2141922; __yadk_uid=lLLIb0FkMXok2KnekkHwsOrTpfAZDoYw; viewed="25779298_26383653_4817744_5912334_1017157_26656350_1961913_27179953_27170483_30365801"; __utmc=30149280; __utmc=223695111; push_doumail_num=0; _ga=GA1.2.1259078594.1543152693; _gid=GA1.2.1988960070.1554283868; __utmv=30149280.17320; push_noty_num=0; dbcl2="173203890:TsXyaJN4SMI"; ck=G_uN; _pk_ref.100001.4cf6=%5B%22%22%2C%22%22%2C1554288028%2C%22https%3A%2F%2Faccounts.douban.com%2Fpassport%2Flogin%3Fredir%3Dhttps%253A%252F%252Fmovie.douban.com%252F%22%5D; _pk_ses.100001.4cf6=*; __utma=30149280.1259078594.1543152693.1554283452.1554288028.30; __utmb=30149280.0.10.1554288028; __utmz=30149280.1554288028.30.28.utmcsr=accounts.douban.com|utmccn=(referral)|utmcmd=referral|utmcct=/passport/login; __utma=223695111.1773724212.1544459933.1554283506.1554288028.8; __utmb=223695111.0.10.1554288028; __utmz=223695111.1554288028.8.7.utmcsr=accounts.douban.com|utmccn=(referral)|utmcmd=referral|utmcct=/passport/login; _pk_id.100001.4cf6=c677784fadd8c8d1.1544459934.8.1554288036.1554283518.'
-#            }
-
-
-
 
 dict = {}
-
-while(urlCollection.__len__()!=0):
+limit = 50
+while(urlCollection.__len__()!=0 and limit>0):
     tempUrl = urlCollection.pop()
     print(tempUrl)
     req = request.Request(tempUrl, headers=headers)
@@ -77,10 +71,9 @@ while(urlCollection.__len__()!=0):
     page = request.urlopen(req).read()
 
 
-
     soup = BeautifulSoup(page.decode('utf-8'), 'html.parser')
 
-    comments = soup.find_all("span", class_="comment-time")
+    comments = soup.find_all("p", class_="pl")
 
     print(comments.__len__())
     for comment in comments:
@@ -93,13 +86,18 @@ while(urlCollection.__len__()!=0):
 
     links = soup.select('.next')
 
+
     try:
         if (links.__len__()>0):
             for link in links:
-                if(link['href']):
-                    urlCollection.add("https://movie.douban.com/subject/4840388/comments"+link['href'])
+                print(link.a['href'])
+                urlCollection.add(link.a['href'])
+                # if(link['href']):
+                #     urlCollection.add("https://movie.douban.com/subject/4840388/comments"+link['href'])
     except :
         break
+
+    limit-=1
 
 
 linecount=1
